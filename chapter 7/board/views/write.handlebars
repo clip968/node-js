@@ -1,0 +1,37 @@
+<h1>[{{title}}] 글 {{#if (eq mode "create")}}쓰기{{else}}수정{{/if}}</h1>
+
+{{#if error}}
+<div style="color: red; padding: 10px; margin-bottom: 20px; border: 1px solid red;">
+    {{error}}
+</div>
+{{/if}}
+
+<div>
+    <form name = "boardForm" method = "post" {{#if (eq mode "create")}}action = "/write"{{else}}action = "/modify"{{/if}}>
+        {{#if (eq mode "modify")}}
+        <input type = "hidden" name = "id" value = "{{post._id}}" />
+        {{/if}}
+        <div>
+            <label>제목</label>
+            <input type = "text" name = "title" id = "title" placeholder = "제목을 입력하세요" value="{{post.title}}" />
+        </div>
+        <div>
+            <label>이름</label>
+            <input type = "text" name = "writer" id = "writer" placeholder = "작성자를 입력하세요" value="{{post.writer}}" />
+        </div>
+        <div>
+            <label>비밀번호</label>
+            <input type = "password" name = "password" id = "password" placeholder = "비밀번호를 입력하세요" />
+        </div>
+
+        <div>
+            <label>본문을 입력하세요</label><br />
+            <textarea name = "content" id = "content" placeholder = "내용을 입력하세요" rows = "10" cols = "50">{{post.content}}</textarea>
+            <br />
+        </div>
+        <div>
+            <button type = "submit">저장</button>
+            <button type = "button" onclick = "location.href = '/'">취소</button>
+        </div>
+    </form>
+</div>

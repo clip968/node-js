@@ -1,0 +1,28 @@
+@server http://127.0.0.1:3000
+
+###
+GET {{server}}/person
+
+###
+POST {{server}}/person
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "age": 30
+}
+
+###
+GET {{server}}/person/john.doe@example.com
+
+###
+PUT {{server}}/person/john.doe@example.com
+Content-Type: application/json
+
+{
+    "age": 31
+}
+
+###
+DELETE {{server}}/person/john.doe@example.com
