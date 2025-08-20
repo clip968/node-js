@@ -127,6 +127,3 @@ dist
 *.sln
 *.sw?
 
-# Ignore nested git repositories to avoid git add errors
-chapter 8/blog/
-chapter 9/config-test/

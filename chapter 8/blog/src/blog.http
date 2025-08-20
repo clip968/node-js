@@ -1,0 +1,32 @@
+
+
+@server = http://localhost:3000
+
+GET {{server}}/blog
+
+###
+POST {{server}}/blog
+Content-Type: application/json
+
+{
+    "title": "test",
+    "content": "test",
+    "name": "test"
+}
+
+###
+# POST로 생성한 후 응답에서 받은 _id를 아래에 사용하세요
+GET {{server}}/blog/507f1f77bcf86cd799439011
+
+###
+DELETE {{server}}/blog/507f1f77bcf86cd799439011
+
+###
+PUT {{server}}/blog/507f1f77bcf86cd799439011
+Content-Type: application/json
+
+{
+    "title": "test2",
+    "content": "test2",
+    "name": "test2"
+}
